@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.12
+// @version      0.13
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
