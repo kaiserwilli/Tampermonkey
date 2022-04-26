@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Replicon ReSort Districts
 // @namespace    http://tampermonkey.net/
-// @version      0.12
+// @version      0.13
 // @description  Correct alphabetic sorting for district list to allow keyboard selection
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/RepliconReSortDistricts.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/RepliconReSortDistricts.js
-// @author       You
+// @author       You-u
 // @match        https://na5.replicon.com/SchoolInnovationsAchievement/my/timesheet/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=replicon.com
 // @grant        none
