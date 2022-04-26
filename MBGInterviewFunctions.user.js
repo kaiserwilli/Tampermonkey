@@ -47,7 +47,6 @@ function getInputElementByNumber(number)	 {
 }
 
 function CustomizeAnswersForMandate() {
-    console.log("CustomizeAnswersForMandate run");
     SetAllQuestionStatusToYes();
     SetTrainingName();
     var MandateName = document.getElementsByTagName('H2')[0].innerHTML;
