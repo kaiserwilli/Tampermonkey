@@ -6,6 +6,7 @@
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.js
 // @author       You
 // @match        https://siaesolutions.com/ezMandate/mbg.action
+// @match        https://siaesolutions.com/ezMandate/mbg_mandates.action
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=siaesolutions.com
 // @grant        none
 // ==/UserScript==
