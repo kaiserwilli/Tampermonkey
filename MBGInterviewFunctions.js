@@ -4,6 +4,7 @@
 // @version      0.12
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.js
+// @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.js
 // @author       You
 // @match        https://siaesolutions.com/ezMandate/mbg.action
 // @match        https://siaesolutions.com/ezMandate/mbg_mandates.action
