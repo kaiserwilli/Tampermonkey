@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.11
+// @version      0.12
 // @description  Add Functionality to MBG
-// @updateurl    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.js
+// @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.js
 // @author       You
 // @match        https://siaesolutions.com/ezMandate/mbg.action
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=siaesolutions.com
