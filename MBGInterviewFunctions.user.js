@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.1.3
+// @version      0.2.1
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -20,6 +20,14 @@ function SetAllQuestionStatusToYes() {
     for (var i = 0; i < QuestionStatusElement.length; i++) {
         SetQuestionStatusToIndex(QuestionStatusElement[i], 1);
     }
+}
+    
+function SetNA(){
+    var PerformedAtElement = document.getElementsByName('mbgComplianceInterviewVO.notApplicable')[0];
+    PerformedAtElement.options.
+    //document.getElementByID('select2-selection__rendered');
+    //PerformedAtElement.options.selectedIndex = 1
+    console.log(PerformedAtElement)
 }
 
 function SetTrainingName() {
@@ -75,8 +83,8 @@ function CustomizeAnswersForMandate() {
             FilloutSuperintendentsOffice(getInputElementByNumber(0), getInputElementByNumber(1));
             break;
         case 'Pupil Safety Notices':
-            SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[3], 0);
-            SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[4], 3);
+            SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[2], 0);
+            //SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[4], 3);
             FilloutSuperintendentsOffice(getInputElementByNumber(6), getInputElementByNumber(7));
             break;
         case 'School Accountability Report Cards':
@@ -117,7 +125,7 @@ function FilloutSuperintendentsOffice(DocumentationDropdownElement, ContactEleme
 var InsertElement = document.getElementById('footer');
 InsertElement.style.height = '4em';
 var innerHtml = InsertElement.innerHTML;
-var buttonhtml = '<span style="display:  table;margin: 0 auto;"> <button onclick="CustomizeAnswersForMandateTampermonkeyHelper()">Prefill Answers</button><button onclick="SetAllQuestionStatusToYesHelper()">All Yes</button><button onclick="SetTrainingNameHelper()">Set Training</button><button onclick="SetAllQuestionsStatusToNotStartedHelper()">Clear All</button></span>';
+var buttonhtml = '<span style="display:  table;margin: 0 auto;"> <button onclick="CustomizeAnswersForMandateTampermonkeyHelper()">Prefill Answers</button><button onclick="SetAllQuestionStatusToYesHelper()">All Yes</button><button onclick="SetNAHelper()">N/A</button><button onclick="SetTrainingNameHelper()">Set Training</button><button onclick="SetAllQuestionsStatusToNotStartedHelper()">Clear All</button></span>';
 innerHtml = buttonhtml + innerHtml;
 InsertElement.innerHTML = innerHtml;
 
