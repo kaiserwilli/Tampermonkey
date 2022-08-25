@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.2.1
+// @version      0.2.2
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -23,11 +23,8 @@ function SetAllQuestionStatusToYes() {
 }
     
 function SetNA(){
-    var PerformedAtElement = document.getElementsByName('mbgComplianceInterviewVO.notApplicable')[0];
-    PerformedAtElement.options.
-    //document.getElementByID('select2-selection__rendered');
-    //PerformedAtElement.options.selectedIndex = 1
-    console.log(PerformedAtElement)
+    document.getElementById('select2-mbgForm_mbgComplianceInterviewVO_notApplicable-container').innerHTML="N/A for Site Type"
+    document.getElementById('mbgForm_mbgComplianceInterviewVO_notApplicable').selectedIndex=1
 }
 
 function SetTrainingName() {
