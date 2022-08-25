@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.2.2
+// @version      0.2.3
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -122,14 +122,15 @@ function FilloutSuperintendentsOffice(DocumentationDropdownElement, ContactEleme
 var InsertElement = document.getElementById('footer');
 InsertElement.style.height = '4em';
 var innerHtml = InsertElement.innerHTML;
-var buttonhtml = '<span style="display:  table;margin: 0 auto;"> <button onclick="CustomizeAnswersForMandateTampermonkeyHelper()">Prefill Answers</button><button onclick="SetAllQuestionStatusToYesHelper()">All Yes</button><button onclick="SetNAHelper()">N/A</button><button onclick="SetTrainingNameHelper()">Set Training</button><button onclick="SetAllQuestionsStatusToNotStartedHelper()">Clear All</button></span>';
+var buttonhtml = '<span style="display:  table;margin: 0 auto;"> <button onclick="CustomizeAnswersForMandateTampermonkeyHelper()">Prefill Answers</button><button onclick="SetAllQuestionStatusToYesHelper()">All Yes</button><button onclick="SetNAHelper()">N/A</button><button onclick="SetAllQuestionsStatusToNotStartedHelper()">Clear All</button></span>';
 innerHtml = buttonhtml + innerHtml;
 InsertElement.innerHTML = innerHtml;
 
 //define button helpers that allow tampermonkey to run these functions indirectly
 window.CustomizeAnswersForMandateTampermonkeyHelper = CustomizeAnswersForMandate;
 window.SetAllQuestionStatusToYesHelper = SetAllQuestionStatusToYes;
-window.SetTrainingNameHelper = SetTrainingName;
+window.SetNAHelper = SetNA;
 window.SetAllQuestionsStatusToNotStartedHelper = SetAllQuestionsStatusToNotStarted;
+
 }
 )();
