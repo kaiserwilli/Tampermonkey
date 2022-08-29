@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.2.3
+// @version      0.2.4
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -21,10 +21,15 @@ function SetAllQuestionStatusToYes() {
         SetQuestionStatusToIndex(QuestionStatusElement[i], 1);
     }
 }
-    
+
 function SetNA(){
     document.getElementById('select2-mbgForm_mbgComplianceInterviewVO_notApplicable-container').innerHTML="N/A for Site Type"
     document.getElementById('mbgForm_mbgComplianceInterviewVO_notApplicable').selectedIndex=1
+}
+
+function SetDO(){
+    document.getElementById('select2-mbgForm_mbgComplianceInterviewVO_notApplicable-container').innerHTML="Performed at DO"
+    document.getElementById('mbgForm_mbgComplianceInterviewVO_notApplicable').selectedIndex=2
 }
 
 function SetTrainingName() {
@@ -85,7 +90,7 @@ function CustomizeAnswersForMandate() {
             FilloutSuperintendentsOffice(getInputElementByNumber(6), getInputElementByNumber(7));
             break;
         case 'School Accountability Report Cards':
-            getInputElementByNumber(0).value = "2021-2022";
+            getInputElementByNumber(0).value = "2022-2023";
             SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[10], 4);
             FilloutSuperintendentsOffice(getInputElementByNumber(1), getInputElementByNumber(2));
             break;
@@ -122,7 +127,7 @@ function FilloutSuperintendentsOffice(DocumentationDropdownElement, ContactEleme
 var InsertElement = document.getElementById('footer');
 InsertElement.style.height = '4em';
 var innerHtml = InsertElement.innerHTML;
-var buttonhtml = '<span style="display:  table;margin: 0 auto;"> <button onclick="CustomizeAnswersForMandateTampermonkeyHelper()">Prefill Answers</button><button onclick="SetAllQuestionStatusToYesHelper()">All Yes</button><button onclick="SetNAHelper()">N/A</button><button onclick="SetAllQuestionsStatusToNotStartedHelper()">Clear All</button></span>';
+var buttonhtml = '<span style="display:  table;margin: 0 auto;"> <button onclick="CustomizeAnswersForMandateTampermonkeyHelper()">Prefill Answers</button><button onclick="SetAllQuestionStatusToYesHelper()">All Yes</button><button onclick="SetNAHelper()">N/A</button><button onclick="SetDOHelper()">D/O</button><button onclick="SetAllQuestionsStatusToNotStartedHelper()">Clear All</button></span>';
 innerHtml = buttonhtml + innerHtml;
 InsertElement.innerHTML = innerHtml;
 
@@ -130,6 +135,7 @@ InsertElement.innerHTML = innerHtml;
 window.CustomizeAnswersForMandateTampermonkeyHelper = CustomizeAnswersForMandate;
 window.SetAllQuestionStatusToYesHelper = SetAllQuestionStatusToYes;
 window.SetNAHelper = SetNA;
+window.SetDOHelper = SetDO;
 window.SetAllQuestionsStatusToNotStartedHelper = SetAllQuestionsStatusToNotStarted;
 
 }
