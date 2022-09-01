@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.2.5
+// @version      0.2.6
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -25,13 +25,13 @@ function SetAllQuestionStatusToYes() {
 function SetNA(){
     document.getElementById('select2-mbgForm_mbgComplianceInterviewVO_notApplicable-container').innerHTML="N/A for Site Type"
     document.getElementById('mbgForm_mbgComplianceInterviewVO_notApplicable').selectedIndex=1
-    $("h3#ui-accordion-complianceInterviewsAccordion-header-0").next().show()
+    ShowTopHideBottom()
 }
 
 function SetDO(){
     document.getElementById('select2-mbgForm_mbgComplianceInterviewVO_notApplicable-container').innerHTML="Performed at DO"
     document.getElementById('mbgForm_mbgComplianceInterviewVO_notApplicable').selectedIndex=2
-    $("h3#ui-accordion-complianceInterviewsAccordion-header-0").next().show()
+     ShowTopHideBottom()
 }
 
 function SetTrainingName() {
@@ -123,6 +123,11 @@ function FilloutSuperintendentsOffice(DocumentationDropdownElement, ContactEleme
             break;
         }
     }
+}
+
+function ShowTopHideBottom(){
+    $("h3#ui-accordion-complianceInterviewsAccordion-header-0").next().show()
+    $("h3#ui-accordion-complianceInterviewsAccordion-header-1").next().hide()
 }
 
 //create the buttons
