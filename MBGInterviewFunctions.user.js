@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.2.6
+// @version      0.2.7
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -126,8 +126,22 @@ function FilloutSuperintendentsOffice(DocumentationDropdownElement, ContactEleme
 }
 
 function ShowTopHideBottom(){
-    $("h3#ui-accordion-complianceInterviewsAccordion-header-0").next().show()
-    $("h3#ui-accordion-complianceInterviewsAccordion-header-1").next().hide()
+    var HeaderToHide = $("h3#ui-accordion-complianceInterviewsAccordion-header-1")
+    var PanelToHide = HeaderToHide.next()
+    var HeaderToShow = $("h3#ui-accordion-complianceInterviewsAccordion-header-0")
+    var PanelToShow = HeaderToShow.next()
+
+    var UIAccordionFunctions = $("#complianceInterviewsAccordion").data().uiAccordion
+
+    var animationdata = {
+        oldHeader: HeaderToHide,
+        oldPanel: PanelToHide,
+        newHeader: HeaderToShow,
+        newPanel: PanelToShow
+    }
+    UIAccordionFunctions._toggle(animationdata)
+    UIAccordionFunctions.active = HeaderToShow
+    console.log("hidden")
 }
 
 //create the buttons
