@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MBG Interview Functions
 // @namespace    http://tampermonkey.net/
-// @version      0.2.8
+// @version      0.2.9
 // @description  Add Functionality to MBG
 // @updateURL    https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
 // @downloadURL  https://raw.githubusercontent.com/kaiserwilli/Tampermonkey/main/MBGInterviewFunctions.user.js
@@ -61,6 +61,7 @@ function getInputElementByNumber(number)	 {
 function CustomizeAnswersForMandate() {
     SetAllQuestionStatusToYes();
     SetTrainingName();
+    ShowBottomHideTop();
     var MandateName = document.getElementsByTagName('H2')[0].innerHTML;
     switch (MandateName) {
         case 'Child Abuse and Neglect Reporting ':
@@ -131,6 +132,11 @@ function ShowTopHideBottom(){
     ShowHideHeaderSections(HeaderToHide,HeaderToShow)
 }
 
+function ShowBottomHideTop(){
+    var HeaderToHide = $("h3#ui-accordion-complianceInterviewsAccordion-header-0")
+    var HeaderToShow = $("h3#ui-accordion-complianceInterviewsAccordion-header-1")
+    ShowHideHeaderSections(HeaderToHide,HeaderToShow)
+}
 
 function ShowHideHeaderSections(HeaderToHide,HeaderToShow)
     {
@@ -139,15 +145,19 @@ function ShowHideHeaderSections(HeaderToHide,HeaderToShow)
 
         var UIAccordionFunctions = $("#complianceInterviewsAccordion").data().uiAccordion
 
-        var animationdata = {
-            oldHeader: HeaderToHide,
-            oldPanel: PanelToHide,
-            newHeader: HeaderToShow,
-            newPanel: PanelToShow
+        if (UIAccordionFunctions.active[0].id != HeaderToShow[0].id)
+        {
+            console.log(UIAccordionFunctions.active[0].id)
+            console.log(HeaderToShow[0].id)
+            var animationdata = {
+                oldHeader: HeaderToHide,
+                oldPanel: PanelToHide,
+                newHeader: HeaderToShow,
+                newPanel: PanelToShow
+            }
+            UIAccordionFunctions._toggle(animationdata)
+            UIAccordionFunctions.active = HeaderToShow
         }
-        UIAccordionFunctions._toggle(animationdata)
-        UIAccordionFunctions.active = HeaderToShow
-        console.log("hidden")
     }
 
 //create the buttons
