@@ -88,7 +88,7 @@ function CustomizeAnswersForMandate() {
             FilloutSuperintendentsOffice(getInputElementByNumber(0), getInputElementByNumber(1));
             break;
         case 'Pupil Safety Notices':
-            SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[2], 0);
+            //SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[2], 0);
             //SetQuestionStatusToIndex(document.getElementsByClassName('questionStatus')[4], 3);
             FilloutSuperintendentsOffice(getInputElementByNumber(6), getInputElementByNumber(7));
             break;
